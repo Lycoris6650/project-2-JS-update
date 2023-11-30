@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" type="text/css" rel="stylesheet">
+    <title>Roguelikes</title>
+</head>
+<body>
+    <div class="sticky" id="banner">
+        <a class="active" href="home.html">Home</a>
+        <a href="origins.html">Origins</a>
+        <a href="others.html">More Games</a>
+    </div>
+    <div id="info">
+        <h3>What are Roguelikes?</h3>
+        <img onclick=tickle(this) src="https://assetsio.reedpopcdn.com/hades-e.jpg?width=1200&height=600&fit=crop&enable=upscale&auto=webp" alt="Hades gameplay" class="homeimg">
+        <p id="oopsie">Roguelike (or rogue-like) is a subgenre of role-playing computer games traditionally characterized by a dungeon crawl through procedurally generated levels, turn-based gameplay, grid-based movement, and permanent death of the player character. Most roguelikes are based on a high fantasy narrative, reflecting their influence from tabletop role playing games such as Dungeons & Dragons.</p>
+        <hr>
+        <h3>Whats the appeal?</h3>
+        <img src="https://cdn.mos.cms.futurecdn.net/zpBp5E95p7Na7QJaAFTj3T.jpg" alt="Binging of Isaac gameplay" class="homeimg">
+        <p id="oopsie2">2 reasons: <br> <br>•	⁠You just play. Story is in the background, but can still be very interesting when the universe is made to support this story (see everything in Isaac). But you are here to enjoy the gameplay, and the story is a bonus. <br><br> •	⁠The replayability. The best rogue games are the one where every run is different, you can play different playstyle, have to adapt to what you get... This is why Isaac is the best in my opinion, every run will give you different items that radically change your power level or the way you approach. <br><br>And a bonus is that there is always something to unlock next, you can see yourself becoming more and more powerful with each run.</p>
+        <hr>
+    </div>
+    <iframe width=1080px height=720px src="https://www.youtube.com/embed/cIyxkcc9xlk?si=fntD_6RDEur4iW-l" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <script>
+        var backC = prompt("what color do you want the background to be");
+        console.log(backC);
+        document.body.setAttribute("style", "background-color: " + backC)
+
+        var oopsie = document.createElement("button");
+    oopsie.textContent = "Click to make me sad";
+    
+
+    oopsie.addEventListener("click", function(){
+    var p = document.getElementById("oopsie");
+        p.setAttribute(
+            "style", "background-color: red; font-size: 200px"
+        );
+        p.textContent = "I can't believe you've done this"
+    
+        var p = document.getElementById("oopsie2");
+        p.setAttribute(
+            "style", "background-color: red; font-size: 400px"
+        );
+        p.textContent = ":("
+    });
+        document.body.insertBefore(oopsie, info);
+
+        var tickleCount = 0
+        function tickle(){
+            if(tickleCount < 1){
+                alert("don't tickle Zagreus it's weird");
+                tickleCount++;
+            }else if (tickleCount < 100){
+                alert("stop it weirdo");
+                tickleCount++;
+            }else{
+                alert("no")
+                var p = document.getElementById("oopsie");
+                p.textContent = "stop"
+                
+                var p = document.getElementById("oopsie2");
+                p.textContent = "stop"
+            }
+        console.log(tickleCount)
+        }
+    </script>
+</body>
+</html>
