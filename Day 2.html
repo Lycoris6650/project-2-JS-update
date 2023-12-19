@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab Day 1</title>
+<style>
+	body {
+    margin: 0; 
+    padding: 0; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    height: 100vh;
+}
+
+#container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.box {
+    width: 50px; 
+    height: 50px; 
+    background-color: green; 
+    margin-right: 10px;
+}
+
+.button {
+    Margin-top: 10px; 
+    padding: 10px; 
+    font-size: 16px;
+}
+
+#grid {
+    display: grid;
+    grid-template-columns: repeat(3, 50px);
+    grid-template-rows: repeat(3, 50px);
+    gap: 5px;
+}
+
+.flash {
+    width: 50px;
+    height: 50px;
+    background-color: black;
+}
+</style>
+
+</head>
+
+<body>
+    <div id="container">
+        <div class="box" id="square1"></div>
+        <div class="box" id="square2"></div>
+        <div class="box" id="square3"></div>
+    </div>
+    <br>
+    <div id="buttons">
+        <button class="button" onclick = "changeColor('square1')">Color1</button>
+        <button class="button" onclick = "changeColor('square2')">Color2</button>
+        <button class="button" onclick = "changeColor('square3')">Color3</button>
+    </div>
+    <br>
+    <div id="grid">
+        <div class="flash"></div>
+        <div class="flash"></div>
+        <div class="flash"></div>
+        <div class="flash"></div>
+        <div class="flash"></div>
+        <div class="flash"></div>
+        <div class="flash"></div>
+        <div class="flash"></div>
+        <div class="flash"></div>
+    </div>
+
+<script>
+function changeColor(squareId) {
+    var square = document.getElementById(squareId);
+    var randomColor = getRandomColor();
+    square.style.backgroundColor = randomColor;
+}
+
+function getRandomColor() {
+    var letters ='0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+
+function flashColors(){
+    var flashes = document.querySelectorAll(".flash");
+
+    flashes.forEach(function(flash){
+        var ranColor = randomColor();
+        flash.style.backgroundColor = ranColor;
+});    
+}
+function randomColor() {
+    var letters1 ='0123456789ABCDEF';
+    var color1 = '#';
+    for (var i = 0; i < 6; i++) {
+        color1 += letters1[Math.floor(Math.random() * 16)];
+    }
+    return color1;
+}
+setInterval(flashColors, 100);
+</script>
+
+</body>
+</html>
